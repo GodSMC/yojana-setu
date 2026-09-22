@@ -25,6 +25,7 @@ def create_app(config=None):
                       TELEGRAM_WEBHOOK_SECRET=os.getenv('TELEGRAM_WEBHOOK_SECRET', ''),
                       TWILIO_AUTH_TOKEN=os.getenv('TWILIO_AUTH_TOKEN', ''),
                       PUBLIC_BASE_URL=os.getenv('PUBLIC_BASE_URL', '').rstrip('/'),
+                      SERVE_DEMO=os.getenv('SERVE_DEMO', 'true').lower() == 'true',
                       APP_ENV=os.getenv('APP_ENV', 'development'))
     if config:
         app.config.update(config)
@@ -113,10 +114,14 @@ def create_app(config=None):
 
     @app.get('/')
     def index():
+        if not app.config['SERVE_DEMO']:
+            return jsonify(service='Yojana Setu messaging backend')
         return send_from_directory(ROOT / 'web', 'index.html')
 
     @app.get('/<path:filename>')
     def static_file(filename):
+        if not app.config['SERVE_DEMO']:
+            return jsonify(error='Not found'), 404
         # Windows registry MIME mappings can incorrectly classify JS modules as plain text.
         mime = 'text/javascript' if filename.endswith(('.mjs', '.js')) else None
         return send_from_directory(ROOT / 'web', filename, mimetype=mime)

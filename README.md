@@ -51,6 +51,12 @@ Do not run polling and webhooks simultaneously. The bot accepts personal screeni
 
 Twilio signs the full public URL and form parameters. The server validates this using Twilio's SDK and refuses unsigned messages. Preserve the exact URL, including query strings. A reverse proxy must forward the body unchanged. Messaging providers may charge for use; a trial is not a permanent free production service.
 
+### Test WhatsApp from this computer
+
+Use `python -m bot.whatsapp_server` to run a messaging-only server on `127.0.0.1:8001`. This does not publish the demo or activate Telegram webhooks, so Telegram polling can continue separately. Point an HTTPS tunnel to this local address, set its HTTPS origin as `PUBLIC_BASE_URL`, and configure the full `/webhooks/whatsapp` address in Twilio. If the tunnel address changes, update both `.env` and Twilio, then restart the WhatsApp server. The computer must stay awake and both processes must remain running.
+
+Twilio's Sandbox is for testing. Each tester must join using the exact join code or QR shown in their account. The current Sandbox documentation says sessions expire after three days and the shared number uses Twilio branding. Trial usage is limited; check the Console before exceeding trial allowances. Use numbered replies for Sandbox testing. Native custom menu templates should be configured only after registering an appropriate WhatsApp sender.
+
 ## Hosting
 
 **GitHub stores the source and runs automated tests. It does not run an always-on Telegram/WhatsApp backend.** Pushing `main` runs tests only. Secrets, personal answers and the source presentation are excluded.

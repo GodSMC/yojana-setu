@@ -122,6 +122,17 @@ def test_production_needs_secret(tmp_path):
         create_app({'APP_ENV':'production','SESSION_SECRET':'','DATABASE_PATH':str(tmp_path/'x.db')})
 
 
+def test_messaging_only_server_does_not_publish_demo(tmp_path):
+    app = create_app({'TESTING': True, 'SERVE_DEMO': False, 'SESSION_SECRET': 's'*32,
+                      'DATABASE_PATH': str(tmp_path/'messaging.db'), 'TELEGRAM_WEBHOOK_SECRET': ''})
+    with app.test_client() as client:
+        assert client.get('/').json == {'service': 'Yojana Setu messaging backend'}
+        assert client.get('/healthz').status_code == 200
+        for path in ['/index.html', '/app.mjs', '/schemes.json', '/.env']:
+            assert client.get(path).status_code == 404
+        assert client.post('/webhooks/telegram', json={'update_id': 1}).status_code == 403
+
+
 def test_python_browser_parity():
     node=shutil.which('node')
     if not node:
