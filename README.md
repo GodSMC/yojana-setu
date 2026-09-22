@@ -41,6 +41,14 @@ Open http://localhost:8000. Copy `.env.example` to `.env` to configure messaging
 
 Do not run polling and webhooks simultaneously. The bot accepts personal screening only in private chats. Telegram webhook responses send messages directly through the Bot API's webhook-response mechanism. Callback buttons in webhook mode may briefly show Telegram's loading indicator; polling mode explicitly acknowledges callbacks.
 
+### Recover automatically on Windows
+
+Run `scripts/install-telegram-task.ps1` in PowerShell to register the per-user `YojanaSetu-Telegram` task. Stop any manually running Telegram poller, then run `Start-ScheduledTask -TaskName YojanaSetu-Telegram`. The task starts after Windows sign-in and retries a crashed process after one minute. It does not impose a run-time limit. It runs under the current user without storing a Windows password. Logs remain under the Git-ignored `artifacts/` directory.
+
+To pause it, use `Stop-ScheduledTask -TaskName YojanaSetu-Telegram` and `Disable-ScheduledTask -TaskName YojanaSetu-Telegram`. Resume with `Enable-ScheduledTask` followed by `Start-ScheduledTask`. This is still local hosting: sleep, shutdown, logout and loss of internet interrupt availability. An always-on cloud host is required for service while this computer is off.
+
+Polling retries temporary network failures, tolerates expired callback acknowledgements, skips permanently undeliverable replies, and remembers the processed update position across restarts. Provider rate-limit delays are respected.
+
 ## WhatsApp through Twilio
 
 1. Join your Twilio WhatsApp Sandbox, or configure an approved WhatsApp sender.

@@ -18,6 +18,7 @@ class Store:
                 PRAGMA journal_mode=WAL;
                 CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY, state TEXT NOT NULL, updated REAL NOT NULL);
                 CREATE TABLE IF NOT EXISTS receipts (id TEXT PRIMARY KEY, user TEXT NOT NULL, response TEXT NOT NULL, created REAL NOT NULL);
+                CREATE TABLE IF NOT EXISTS runtime_state (name TEXT PRIMARY KEY, value TEXT NOT NULL);
             ''')
 
     def connect(self):
@@ -25,6 +26,15 @@ class Store:
 
     def key(self, raw):
         return hmac.new(self.secret, raw.encode(), hashlib.sha256).hexdigest()
+
+    def get_offset(self, bot_id):
+        with self.connect() as db:
+            row = db.execute('SELECT value FROM runtime_state WHERE name=?', ('telegram_offset:' + str(bot_id),)).fetchone()
+        return int(row[0]) if row else 0
+
+    def set_offset(self, bot_id, offset):
+        with self.connect() as db:
+            db.execute('INSERT OR REPLACE INTO runtime_state VALUES (?,?)', ('telegram_offset:' + str(bot_id), str(offset)))
 
     def handle(self, channel, user, event, text):
         uid = self.key(f'{channel}:{user}')
