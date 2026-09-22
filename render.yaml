@@ -1,0 +1,29 @@
+# Optional Python hosting. This is NOT deployed by the GitHub Pages workflow.
+# A paid instance with persistent disk is selected deliberately to retain conversations.
+services:
+  - type: web
+    name: yojana-setu-bot
+    runtime: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: setu-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: TELEGRAM_WEBHOOK_SECRET
+        generateValue: true
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_WHATSAPP_NUMBER
+        sync: false

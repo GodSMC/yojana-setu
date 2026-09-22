@@ -1,0 +1,20 @@
+{
+  "welcome":{"en":"Namaste! I’m Setu, your welfare guide. Choose a scheme to check a few basic criteria. You can type or use your keyboard’s microphone. Please don’t share Aadhaar, bank numbers or documents.","hi":"नमस्ते! मैं सेतु, आपका योजना सहायक हूँ। शुरुआती पात्रता जाँच के लिए योजना चुनें। आप लिख सकते हैं या कीबोर्ड का माइक इस्तेमाल कर सकते हैं। आधार, बैंक नंबर या दस्तावेज़ न भेजें।"},
+  "saved":{"en":"Your answers are remembered for this conversation. Use /delete to erase them, /edit to correct them, /menu to change schemes or /language to switch language.","hi":"इस बातचीत के लिए आपके उत्तर याद रखे जाते हैं। मिटाने के लिए /delete, सुधार के लिए /edit, योजना बदलने के लिए /menu और भाषा के लिए /language लिखें।"},
+  "invalid":{"en":"Please choose one of the options or enter a valid value. You can also reply ‘not sure’ for human help.","hi":"दिए गए विकल्पों में से चुनें या सही मान लिखें। सहायता के लिए ‘पता नहीं’ भी लिख सकते हैं।"},
+  "unknown":{"en":"I need a person to review this detail before giving you a useful assessment.","hi":"सही शुरुआती जानकारी देने से पहले इस विवरण की जाँच किसी सहायक से करानी होगी।"},
+  "possible":{"en":"You meet the basic criteria checked here","hi":"आप यहाँ जाँची गई शुरुआती शर्तें पूरी करते हैं"},
+  "unlikely":{"en":"A checked criterion does not match","hi":"जाँची गई एक शर्त मेल नहीं खाती"},
+  "review":{"en":"A little more help is needed","hi":"थोड़ी और सहायता चाहिए"},
+  "disclaimer":{"en":"This is guidance, not an eligibility decision. Only the responsible department can approve your application.","hi":"यह मार्गदर्शन है, पात्रता का अंतिम निर्णय नहीं। आवेदन की मंज़ूरी संबंधित विभाग देता है।"},
+  "help":{"en":"A Common Service Centre (CSC) can help you understand documents and apply. Open the official locator and select your location. I cannot verify the nearest centre or its opening hours.","hi":"कॉमन सर्विस सेंटर (CSC) दस्तावेज़ समझने और आवेदन में मदद कर सकता है। आधिकारिक लोकेटर खोलकर अपना स्थान चुनें। मैं निकटतम केंद्र या उसके खुलने का समय सत्यापित नहीं कर सकता।"},
+  "fallback":{"en":"I can help with PM-KISAN, NMMS scholarships and old-age pension. For other schemes or a complex case, try a CSC or myScheme.","hi":"मैं पीएम-किसान, NMMS छात्रवृत्ति और वृद्धावस्था पेंशन में मदद कर सकता हूँ। दूसरी योजनाओं या जटिल मामले के लिए CSC या myScheme देखें।"},
+  "deleted":{"en":"Your saved answers have been deleted. You can start again whenever you’re ready.","hi":"आपके सहेजे गए उत्तर मिटा दिए गए हैं। जब चाहें दोबारा शुरू करें।"},
+  "voice":{"en":"For voice input here, use your phone keyboard’s microphone and send the resulting text. This pilot does not transcribe attached audio or voice notes. You can also use the browser demo’s Speak button.","hi":"बोलकर उत्तर देने के लिए फ़ोन के कीबोर्ड का माइक दबाएँ और बना हुआ टेक्स्ट भेजें। यह पायलट ऑडियो या वॉइस नोट का लिप्यंतरण नहीं करता। ब्राउज़र डेमो में बोलें बटन भी इस्तेमाल कर सकते हैं।"},
+  "privacy":{"en":"Web demo: answers stay in this tab’s session storage. Messaging: a hashed channel ID and your screening answers are kept for up to 7 days of inactivity. No full message history, files or audio are stored by this app. /delete erases the profile. Telegram, Twilio and your browser’s speech service have their own data policies.","hi":"वेब डेमो: उत्तर इस टैब के सत्र में रहते हैं। मैसेजिंग: पहचान का हैश और जाँच के उत्तर आखिरी गतिविधि से 7 दिन तक रखे जाते हैं। ऐप पूरी बातचीत, फ़ाइल या ऑडियो नहीं रखता। /delete प्रोफ़ाइल मिटाता है। Telegram, Twilio और ब्राउज़र की वाणी सेवा की अपनी डेटा नीतियाँ हैं।"},
+  "menu":{"en":"Choose another scheme","hi":"दूसरी योजना चुनें"},
+  "csc":{"en":"Find a CSC","hi":"CSC खोजें"},
+  "official":{"en":"Official scheme portal","hi":"आधिकारिक योजना पोर्टल"},
+  "source":{"en":"Read the source","hi":"आधिकारिक स्रोत पढ़ें"},
+  "edit":{"en":"Change my answers","hi":"मेरे उत्तर बदलें"}
+}

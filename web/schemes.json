@@ -1,0 +1,72 @@
+{
+  "reviewed": "2026-09-22",
+  "csc_url": "https://locator.csccloud.in/",
+  "csc_reference": "https://jind.gov.in/service/csc-locator/",
+  "schemes": [
+    {
+      "id": "kisan", "icon": "🌾",
+      "name": {"en": "PM-KISAN", "hi": "पीएम-किसान"},
+      "category": {"en": "Support for farmers", "hi": "किसानों के लिए सहायता"},
+      "keywords": ["kisan", "farmer", "farming", "agriculture", "किसान", "खेती", "कृषि"],
+      "benefit": {"en": "₹6,000 a year in three instalments for eligible landholding farmer families.", "hi": "पात्र भूमिधारक किसान परिवारों को तीन किस्तों में सालाना ₹6,000।"},
+      "source": "https://pmkisan.gov.in/",
+      "apply": "https://pmkisan.gov.in/",
+      "scope": {"en": "Basic screening only. Land-record dates, family definition, exclusions and official verification can affect the outcome. Check the current portal before applying.", "hi": "यह शुरुआती जाँच है। भूमि रिकॉर्ड की तारीख, परिवार की परिभाषा, अपवर्जन और सरकारी सत्यापन से परिणाम बदल सकता है। आवेदन से पहले आधिकारिक पोर्टल देखें।"},
+      "documents": {"en": "Ask the official portal or CSC about identity, land records and bank details. Do not send documents or account numbers to this bot.", "hi": "पहचान, भूमि रिकॉर्ड और बैंक विवरण के बारे में आधिकारिक पोर्टल या CSC से पूछें। इस बॉट को दस्तावेज़ या खाता संख्या न भेजें।"},
+      "fields": ["state", "farmer_land", "kisan_excluded"],
+      "rules": [
+        {"field":"farmer_land","op":"eq","value":"yes","reason":{"en":"This scheme covers landholding farmer families.","hi":"यह योजना भूमिधारक किसान परिवारों के लिए है।"}},
+        {"field":"kisan_excluded","op":"eq","value":"no","reason":{"en":"An exclusion may apply to your family. Ask the official helpdesk to review your case.","hi":"आपका परिवार अपवर्जन में आ सकता है। आधिकारिक सहायता केंद्र से जाँच कराएँ।"}}
+      ]
+    },
+    {
+      "id": "scholarship", "icon": "📚",
+      "name": {"en": "NMMS Scholarship", "hi": "NMMS छात्रवृत्ति"},
+      "category": {"en": "Support for students", "hi": "विद्यार्थियों के लिए सहायता"},
+      "keywords": ["scholarship", "student", "school", "nmms", "education", "छात्रवृत्ति", "पढ़ाई", "स्कूल", "छात्र"],
+      "benefit": {"en": "₹12,000 a year for selected students from Class IX, subject to selection and renewal rules.", "hi": "चयनित विद्यार्थियों को कक्षा 9 से सालाना ₹12,000, चयन और नवीनीकरण की शर्तों के अनुसार।"},
+      "source": "https://nmms.odisha.gov.in/",
+      "sources": ["https://www.education.gov.in/sites/upload_files/mhrd/files/document-reports/MoE_AR_En.pdf", "https://dip.goa.gov.in/gscert-nmmss-examination-on-march-1st/"],
+      "apply": "https://scholarships.gov.in/",
+      "scope": {"en": "Screening for the Class VIII selection-test route, not a scholarship award or renewal. State notices, deadlines, test qualification and current-year availability must be checked with your school.", "hi": "यह कक्षा 8 की चयन परीक्षा के लिए शुरुआती जाँच है, छात्रवृत्ति का निर्णय या नवीनीकरण नहीं। राज्य की सूचना, अंतिम तिथि, परीक्षा और चालू वर्ष की उपलब्धता स्कूल से जाँचें।"},
+      "documents": {"en": "Ask your school about the state selection test, income certificate, Class VII marks and category certificate where applicable. NSP registration follows the applicable selection process.", "hi": "राज्य चयन परीक्षा, आय प्रमाण पत्र, कक्षा 7 के अंक और लागू श्रेणी प्रमाण पत्र के बारे में स्कूल से पूछें। चयन प्रक्रिया के अनुसार NSP पंजीकरण होता है।"},
+      "fields": ["state", "school_class", "school_type", "annual_income", "sc_st", "marks"],
+      "rules": [
+        {"field":"school_class","op":"eq","value":8,"reason":{"en":"This pilot checks the Class VIII selection-test route only. Other classes or renewals need school guidance.","hi":"यह बॉट केवल कक्षा 8 की चयन परीक्षा की जाँच करता है। दूसरी कक्षाओं या नवीनीकरण के लिए स्कूल से पूछें।"}},
+        {"field":"school_type","op":"eq","value":"eligible","reason":{"en":"Private schools, KVs, JNVs and excluded residential schools are outside the covered school categories.","hi":"निजी स्कूल, KV, JNV और अपवर्जित आवासीय स्कूल पात्र स्कूल श्रेणियों में नहीं आते।"}},
+        {"field":"annual_income","op":"lte","value":350000,"reason":{"en":"The published parental-income ceiling is ₹3,50,000 per year from all sources.","hi":"प्रकाशित सीमा के अनुसार माता-पिता की सभी स्रोतों से सालाना आय ₹3,50,000 तक होनी चाहिए।"}},
+        {"field":"marks","op":"marks","value":55,"reason":{"en":"Class VII marks must be at least 55%, or 50% for SC/ST under the central criteria.","hi":"केंद्रीय नियमों में कक्षा 7 में कम से कम 55% अंक, या SC/ST के लिए 50% चाहिए।"}}
+      ]
+    },
+    {
+      "id": "pension", "icon": "🤝",
+      "name": {"en": "Old-age Pension", "hi": "वृद्धावस्था पेंशन"},
+      "category": {"en": "Support for older people", "hi": "बुज़ुर्गों के लिए सहायता"},
+      "keywords": ["pension", "old age", "elderly", "senior", "ignoaps", "पेंशन", "बुजुर्ग", "बुज़ुर्ग", "वृद्ध"],
+      "benefit": {"en": "IGNOAPS provides pension support for eligible older people. The final amount and application process vary by state.", "hi": "IGNOAPS पात्र बुज़ुर्गों को पेंशन सहायता देता है। कुल राशि और आवेदन प्रक्रिया राज्य के अनुसार अलग होती है।"},
+      "source": "https://rural.gov.in/sites/default/files/NSAP_Suo_moto_disclosure_for_RTI_01112021_0.pdf",
+      "apply": "https://nsap.nic.in/",
+      "scope": {"en": "This checks the central IGNOAPS age and BPL criteria. State pension schemes may cover additional people. Local authorities verify the final application.", "hi": "यह केंद्रीय IGNOAPS की उम्र और BPL शर्तों की जाँच है। राज्य की योजनाएँ अन्य लोगों को भी शामिल कर सकती हैं। अंतिम आवेदन स्थानीय अधिकारी जाँचते हैं।"},
+      "documents": {"en": "Ask your Gram Panchayat, municipal office or CSC about age proof, BPL records, residence and bank details. Do not upload them here.", "hi": "आयु प्रमाण, BPL रिकॉर्ड, निवास और बैंक विवरण के बारे में ग्राम पंचायत, नगर कार्यालय या CSC से पूछें। इन्हें यहाँ अपलोड न करें।"},
+      "fields": ["state", "age", "bpl"],
+      "rules": [
+        {"field":"age","op":"gte","value":60,"reason":{"en":"The central IGNOAPS route starts at age 60. Other state assistance may differ.","hi":"केंद्रीय IGNOAPS में न्यूनतम आयु 60 वर्ष है। राज्य की दूसरी सहायता अलग हो सकती है।"}},
+        {"field":"bpl","op":"eq","value":"yes","reason":{"en":"The central route requires a recognised BPL household. Ask your local office about state alternatives.","hi":"केंद्रीय योजना के लिए मान्यता प्राप्त BPL परिवार होना आवश्यक है। राज्य के विकल्पों के लिए स्थानीय कार्यालय से पूछें।"}}
+      ]
+    }
+  ],
+  "fields": {
+    "state": {"type":"state","question":{"en":"Which state or union territory do you live in? Please use the full English name, for example Punjab or Delhi.","hi":"आप किस राज्य या केंद्र शासित प्रदेश में रहते हैं? जैसे Punjab, Delhi, पंजाब या दिल्ली।"}},
+    "age": {"type":"number","min":0,"max":120,"integer":true,"question":{"en":"What is your age in completed years?","hi":"आपकी उम्र पूरे वर्षों में कितनी है?"}},
+    "farmer_land": {"type":"choice","question":{"en":"Does your farmer family own cultivable land recorded in its name?","hi":"क्या आपके किसान परिवार के नाम पर खेती योग्य भूमि दर्ज है?"},"options":[["yes","Yes","हाँ"],["no","No","नहीं"],["unknown","Not sure","पता नहीं"]]},
+    "kisan_excluded": {"type":"choice","question":{"en":"Does anyone in your family fall into these PM-KISAN exclusions: income-tax payer in the last assessment year; serving/retired government or eligible public-body employee (except MTS/Class IV/Group D); pension of ₹10,000+ per month (with the same exceptions); practising registered doctor, engineer, lawyer, CA or architect; current/former constitutional post, minister, MP/MLA/MLC, municipal mayor or district panchayat chairperson? Institutional landholders are excluded too.","hi":"क्या परिवार में पीएम-किसान का कोई अपवर्जन लागू है: पिछले आकलन वर्ष में आयकरदाता; सरकारी/सार्वजनिक निकाय का कर्मचारी या सेवानिवृत्त कर्मचारी (MTS/चतुर्थ श्रेणी/ग्रुप D को छोड़कर); ₹10,000 या अधिक मासिक पेंशन (इन्हीं छूटों सहित); पंजीकृत और कार्यरत डॉक्टर, इंजीनियर, वकील, CA या आर्किटेक्ट; वर्तमान/पूर्व संवैधानिक पद, मंत्री, सांसद/विधायक/विधान परिषद सदस्य, महापौर या जिला पंचायत अध्यक्ष? संस्थागत भूमिधारक भी बाहर हैं।"},"options":[["yes","Yes","हाँ"],["no","No","नहीं"],["unknown","Not sure","पता नहीं"]]},
+    "school_class": {"type":"number","min":1,"max":12,"integer":true,"question":{"en":"Which class are you currently studying in? Enter a number from 1 to 12.","hi":"आप अभी किस कक्षा में पढ़ते हैं? 1 से 12 तक संख्या लिखें।"}},
+    "school_type": {"type":"choice","question":{"en":"Is your school a state government, government-aided or local-body school? Choose Other if it is private, KV, JNV, or a residential school providing government-funded boarding and education.","hi":"क्या आपका स्कूल राज्य सरकारी, सरकारी सहायता प्राप्त या स्थानीय निकाय का है? निजी, KV, JNV या सरकारी खर्च पर आवास व शिक्षा देने वाले आवासीय स्कूल के लिए अन्य चुनें।"},"options":[["eligible","Government / aided","सरकारी / सहायता प्राप्त"],["other","Other school","अन्य स्कूल"],["unknown","Not sure","पता नहीं"]]},
+    "annual_income": {"type":"number","min":0,"max":1000000000,"integer":true,"question":{"en":"What is your parents’ total annual income in rupees, from all sources? Enter a number, for example 250000.","hi":"माता-पिता की सभी स्रोतों से कुल सालाना आय कितने रुपये है? जैसे 250000।"}},
+    "sc_st": {"type":"choice","question":{"en":"Do you belong to the SC or ST category? This determines the published marks relaxation.","hi":"क्या आप SC या ST श्रेणी में आते हैं? इससे अंकों में मिलने वाली छूट तय होती है।"},"options":[["yes","Yes","हाँ"],["no","No","नहीं"],["unknown","Prefer not to say","नहीं बताना चाहते"]]},
+    "marks": {"type":"number","min":0,"max":100,"question":{"en":"What percentage did you score in Class VII? For example 62.5.","hi":"कक्षा 7 में आपके कितने प्रतिशत अंक थे? जैसे 62.5।"}},
+    "bpl": {"type":"choice","question":{"en":"Is your household recognised as Below Poverty Line (BPL) in the official records?","hi":"क्या सरकारी रिकॉर्ड में आपका परिवार गरीबी रेखा से नीचे (BPL) दर्ज है?"},"options":[["yes","Yes","हाँ"],["no","No","नहीं"],["unknown","Not sure","पता नहीं"]]}
+  },
+  "states": ["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli and Daman and Diu","Delhi","Jammu and Kashmir","Ladakh","Lakshadweep","Puducherry"],
+  "state_aliases": {"दिल्ली":"Delhi","पंजाब":"Punjab","हरियाणा":"Haryana","बिहार":"Bihar","उत्तर प्रदेश":"Uttar Pradesh","उत्तराखंड":"Uttarakhand","राजस्थान":"Rajasthan","मध्य प्रदेश":"Madhya Pradesh","महाराष्ट्र":"Maharashtra","गुजरात":"Gujarat","असम":"Assam","पश्चिम बंगाल":"West Bengal","झारखंड":"Jharkhand","छत्तीसगढ़":"Chhattisgarh","हिमाचल प्रदेश":"Himachal Pradesh","कर्नाटक":"Karnataka","केरल":"Kerala","तमिलनाडु":"Tamil Nadu","तमिल नाडु":"Tamil Nadu","तेलंगाना":"Telangana","आंध्र प्रदेश":"Andhra Pradesh","अरुणाचल प्रदेश":"Arunachal Pradesh","गोवा":"Goa","मणिपुर":"Manipur","मेघालय":"Meghalaya","मिज़ोरम":"Mizoram","नागालैंड":"Nagaland","ओडिशा":"Odisha","सिक्किम":"Sikkim","त्रिपुरा":"Tripura","चंडीगढ़":"Chandigarh","जम्मू और कश्मीर":"Jammu and Kashmir","लद्दाख":"Ladakh","लक्षद्वीप":"Lakshadweep","पुदुचेरी":"Puducherry","अंडमान और निकोबार द्वीपसमूह":"Andaman and Nicobar Islands","दादरा और नगर हवेली और दमन और दीव":"Dadra and Nagar Haveli and Daman and Diu","up":"Uttar Pradesh","mp":"Madhya Pradesh","uk":"Uttarakhand","orissa":"Odisha","new delhi":"Delhi","pondicherry":"Puducherry"}
+}

@@ -1,0 +1,22 @@
+[
+  {"name":"farmer passes basic checks","inputs":["/start","1","Punjab","1","2"],"status":"possible","scheme":"kisan"},
+  {"name":"farmer excluded","inputs":["kisan","Punjab","yes","yes"],"status":"unlikely"},
+  {"name":"unknown land status","inputs":["kisan","Punjab","not sure"],"status":"review"},
+  {"name":"pension at age boundary","inputs":["pension","Delhi","60","yes"],"status":"possible"},
+  {"name":"pension below age boundary","inputs":["pension","Delhi","59","yes"],"status":"unlikely"},
+  {"name":"pension unknown BPL","inputs":["pension","Delhi","61","unknown"],"status":"review"},
+  {"name":"Hindi pension","inputs":["/hi","पेंशन","पंजाब","६५","हाँ"],"status":"possible"},
+  {"name":"NMMS at limits","inputs":["scholarship","Punjab","8","1","350000","no","55"],"status":"possible"},
+  {"name":"NMMS high income","inputs":["scholarship","Punjab","8","eligible","350001","no","55"],"status":"unlikely"},
+  {"name":"NMMS SC ST relaxation","inputs":["scholarship","Punjab","8","eligible","350000","yes","50"],"status":"possible"},
+  {"name":"NMMS below relaxed threshold","inputs":["scholarship","Punjab","8","eligible","350000","yes","49.9"],"status":"unlikely"},
+  {"name":"NMMS private school","inputs":["scholarship","Punjab","8","other","100000","no","85"],"status":"unlikely"},
+  {"name":"state reuse","inputs":["kisan","Punjab","yes","no","pension","70","yes"],"status":"possible","scheme":"pension"},
+  {"name":"edit and Hindi switch","inputs":["pension","Delhi","60","yes","/edit","Punjab","/hi","६१","हाँ"],"status":"possible"},
+  {"name":"back changes threshold","inputs":["pension","Delhi","59","/back","60","yes"],"status":"possible"},
+  {"name":"invalid inputs reprompt","inputs":["pension","<script>","Delhi","NaN","-2","999","60","yes"],"status":"possible"},
+  {"name":"clear all memory","inputs":["pension","Punjab","65","/delete","pension"],"field":"state"},
+  {"name":"unrecognised request offers help","inputs":["Tell me about an unknown scheme"],"kind":"fallback"},
+  {"name":"audio fallback","inputs":["/voice"],"kind":"info"},
+  {"name":"privacy during question","inputs":["pension","Delhi","/privacy","60","yes"],"status":"possible"}
+]

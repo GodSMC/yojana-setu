@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Yojana Setu helps you explore welfare schemes in Hindi and English. Check basic criteria, understand next steps and find human help.">
+  <meta name="theme-color" content="#184d43">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>Yojana Setu · A little guidance. A step forward.</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Yojana Setu home"><span class="brand-mark" aria-hidden="true">सेतु</span><span>Yojana Setu<small data-en="YOUR WELFARE COMPANION" data-hi="आपका योजना साथी">YOUR WELFARE COMPANION</small></span></a>
+    <nav aria-label="Main navigation"><a href="#schemes" data-en="Explore schemes" data-hi="योजनाएँ देखें">Explore schemes</a><button class="language" id="language" type="button">हिंदी <span aria-hidden="true">⇄</span> English</button></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <div class="intro-copy"><p class="eyebrow"><span></span><span data-en="A BRIDGE TO EVERYDAY SUPPORT" data-hi="सहायता तक पहुँचने का एक सेतु">A BRIDGE TO EVERYDAY SUPPORT</span></p>
+        <h1 data-en="The right scheme.<br>A clearer next step." data-hi="सही योजना।<br>आगे का रास्ता आसान।">The right scheme.<br><em>A clearer next step.</em></h1>
+        <p class="lead" data-en="Government support can feel complicated. Let’s make it easier, one simple question at a time." data-hi="सरकारी सहायता समझना मुश्किल लग सकता है। आइए, एक-एक आसान सवाल से इसे समझें।">Government support can feel complicated. Let’s make it easier, one simple question at a time.</p>
+        <div class="intro-tags"><span data-en="Hindi & English" data-hi="हिंदी और अंग्रेज़ी">Hindi & English</span><span data-en="No sign-up" data-hi="पंजीकरण ज़रूरी नहीं">No sign-up</span><span data-en="Free to explore" data-hi="जानकारी मुफ़्त">Free to explore</span></div>
+      </div>
+      <aside class="intro-note"><span class="note-symbol" aria-hidden="true">✳</span><p data-en="A little guidance.<br>A step forward." data-hi="थोड़ा मार्गदर्शन।<br>एक कदम आगे।">A little guidance.<br>A step forward.</p><small data-en="Built by Team Setu" data-hi="टीम सेतु की पहल">Built by Team Setu</small></aside>
+    </section>
+    <div class="workspace">
+      <aside class="scheme-panel" id="schemes">
+        <div class="section-label"><h2 data-en="Start with what you need" data-hi="अपनी ज़रूरत से शुरू करें">Start with what you need</h2><span>01—03</span></div>
+        <div id="scheme-list" class="scheme-list"></div>
+        <div class="human-help"><span aria-hidden="true">↗</span><h3 data-en="Sometimes, a person helps." data-hi="कभी-कभी इंसानी मदद चाहिए।">Sometimes, a person helps.</h3><p data-en="Your local Common Service Centre can help with documents and applications." data-hi="आपका स्थानीय कॉमन सर्विस सेंटर दस्तावेज़ और आवेदन में मदद कर सकता है।">Your local Common Service Centre can help with documents and applications.</p><button id="help" type="button" data-en="Find human help →" data-hi="सहायता खोजें →">Find human help →</button></div>
+        <p class="source-note" data-en="Based on published government criteria. This pilot gives initial guidance; it cannot approve an application." data-hi="प्रकाशित सरकारी शर्तों पर आधारित शुरुआती मार्गदर्शन। यह पायलट आवेदन मंज़ूर नहीं कर सकता।">Based on published government criteria. This pilot gives initial guidance; it cannot approve an application.</p>
+      </aside>
+      <section class="chat" aria-label="Chat with Setu">
+        <header class="chat-header"><div class="avatar" aria-hidden="true">स</div><div><h2 data-en="Let’s talk with Setu" data-hi="सेतु से बात करें">Let’s talk with Setu</h2><p><span class="status-dot"></span><span data-en="Browser assistant · Ready to help" data-hi="ब्राउज़र सहायक · आपकी मदद के लिए">Browser assistant · Ready to help</span></p></div><button id="restart" class="icon-button" type="button" title="Delete answers and restart" aria-label="Delete answers and restart">↺</button></header>
+        <div id="progress" class="progress" hidden></div>
+        <div class="messages" id="messages" role="log" aria-live="polite" aria-relevant="additions"><p id="loading">Loading your guide…</p></div>
+        <div class="chat-tools"><button id="menu" type="button" data-en="All schemes" data-hi="सभी योजनाएँ">All schemes</button><button id="back" type="button" data-en="Previous answer" data-hi="पिछला उत्तर">Previous answer</button><button id="privacy" type="button" data-en="Your privacy" data-hi="आपकी गोपनीयता">Your privacy</button></div>
+        <form id="composer" class="composer"><label for="message" class="sr-only">Your message</label><input id="message" name="message" autocomplete="off" maxlength="2000" placeholder="Type here, or tap Speak…" required><button id="speak" class="speak" type="button" aria-label="Dictate a message">♩ <span data-en="Speak" data-hi="बोलें">Speak</span></button><button id="send" class="send" type="submit" aria-label="Send message">↑</button></form>
+        <p id="voice-status" class="composer-note" role="status" data-en="Your answers stay in this browser tab. Never share Aadhaar or bank details." data-hi="उत्तर इसी ब्राउज़र टैब में रहते हैं। आधार या बैंक विवरण न भेजें।">Your answers stay in this browser tab. Never share Aadhaar or bank details.</p>
+      </section>
+    </div>
+    <section class="how"><div><span>01</span><h3 data-en="Choose a scheme" data-hi="योजना चुनें">Choose a scheme</h3><p data-en="Find the support that fits your situation." data-hi="अपनी ज़रूरत की सहायता खोजें।">Find the support that fits your situation.</p></div><div><span>02</span><h3 data-en="Answer a few questions" data-hi="कुछ आसान उत्तर दें">Answer a few questions</h3><p data-en="Simple words. One question at a time." data-hi="आसान भाषा। एक बार में एक सवाल।">Simple words. One question at a time.</p></div><div><span>03</span><h3 data-en="Know your next step" data-hi="अगला कदम जानें">Know your next step</h3><p data-en="Official links and a way to get human help." data-hi="आधिकारिक लिंक और सहायता का रास्ता।">Official links and a way to get human help.</p></div></section>
+  </main>
+  <footer><span>Yojana Setu <span aria-hidden="true">/</span> Team Setu</span><span data-en="Independent student project · Not a government service" data-hi="स्वतंत्र छात्र परियोजना · सरकारी सेवा नहीं">Independent student project · Not a government service</span><a href="https://github.com/GodSMC/yojana-setu" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+  <noscript>This assistant needs JavaScript. You can find government schemes at <a href="https://www.myscheme.gov.in/">myScheme</a>.</noscript>
+  <script type="module" src="app.mjs"></script>
+</body></html>
